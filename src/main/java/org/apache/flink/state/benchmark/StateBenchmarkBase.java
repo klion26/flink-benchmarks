@@ -52,7 +52,7 @@ public class StateBenchmarkBase extends BenchmarkBase {
 
     final ThreadLocalRandom random = ThreadLocalRandom.current();
 
-    @TearDown
+    @TearDown(Level.Iteration)
     public void tearDown() {
         keyedStateBackend.dispose();
     }
