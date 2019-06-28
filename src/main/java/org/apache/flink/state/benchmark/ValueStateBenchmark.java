@@ -23,6 +23,7 @@ import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.runtime.state.VoidNamespace;
 import org.apache.flink.runtime.state.VoidNamespaceSerializer;
 import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -50,7 +51,7 @@ public class ValueStateBenchmark extends StateBenchmarkBase {
         new Runner(opt).run();
     }
 
-    @Setup
+    @Setup(Level.Iteration)
     public void setUp() throws Exception {
         keyedStateBackend = createKeyedStateBackend();
         valueState = keyedStateBackend.getPartitionedState(

@@ -23,6 +23,7 @@ import org.apache.flink.api.common.state.MapStateDescriptor;
 import org.apache.flink.runtime.state.VoidNamespace;
 import org.apache.flink.runtime.state.VoidNamespaceSerializer;
 import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.Level;
 import org.openjdk.jmh.annotations.OperationsPerInvocation;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.infra.Blackhole;
@@ -57,7 +58,7 @@ public class MapStateBenchmark extends StateBenchmarkBase {
         new Runner(opt).run();
     }
 
-    @Setup
+    @Setup(Level.Iteration)
     public void setUp() throws Exception {
         keyedStateBackend = createKeyedStateBackend();
         mapState = keyedStateBackend.getPartitionedState(
