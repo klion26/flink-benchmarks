@@ -28,7 +28,7 @@ import java.util.Random;
  */
 class StateBenchmarkConstants {
     static final int mapKeyCount = 10;
-    static final int listValueCount = 100;
+    static final int listValueCount = 50;
     static final int setupKeyCount = 500_000;
     static final String rootDirName = "benchmark";
     static final String recoveryDirName = "localRecovery";
